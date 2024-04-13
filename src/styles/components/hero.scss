@@ -1,0 +1,104 @@
+@use '/src/styles/base/mixins';
+@use '/src/styles/base/utils';
+@use '/src/styles/base/colors';
+
+$-hero-gradient-end-stop: rgba(15, 20, 32, 0.79);
+$-hero-gradient-to-bottom: linear-gradient(
+  to bottom,
+  transparent,
+  $-hero-gradient-end-stop
+);
+$-hero-gradient-to-left: linear-gradient(
+  to left,
+  transparent,
+  $-hero-gradient-end-stop
+);
+
+.hero {
+  display: flex;
+  min-height: 451px;
+  background:
+    url(/images/earth.png) left 16px top -117px / 300px no-repeat,
+    $-hero-gradient-to-bottom,
+    url(/images/space_1_768px.jpg) center/cover #d9d9d9;
+
+  @include mixins.media(md) {
+    min-height: 420px;
+    background:
+      url(/images/earth.png) top 26px right -73px / 300px no-repeat,
+      $-hero-gradient-to-left,
+      url(/images/space_1_1248px.jpg) center/cover #d9d9d9;
+  }
+
+  @include mixins.media(lg) {
+    min-height: 490px;
+    background:
+      url(/images/earth.png) top 59px right 90px no-repeat,
+      $-hero-gradient-to-left,
+      url(/images/space_1_2160px.jpg) center/cover #d9d9d9;
+  }
+
+  &--container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: utils.rem(44);
+    padding-bottom: utils.rem(44);
+
+    @include mixins.media(md) {
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+
+  &--content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: utils.rem(17);
+    text-align: center;
+
+    @include mixins.media(md) {
+      max-width: 411px;
+      align-items: flex-start;
+      gap: utils.rem(22);
+      text-align: left;
+    }
+
+    @include mixins.media(lg) {
+      max-width: 693px;
+    }
+  }
+
+  &--heading {
+    @include mixins.text(3.5xl);
+
+    @include mixins.media(md) {
+      @include mixins.text(5xl);
+    }
+
+    @include mixins.media(lg) {
+      @include mixins.text(6xl);
+    }
+
+    > .accent {
+      color: colors.$pink;
+    }
+  }
+
+  &--text {
+    @include mixins.text(base);
+
+    @include mixins.media(md) {
+      @include mixins.text(1.5xl);
+    }
+
+    @include mixins.media(lg) {
+      @include mixins.text(3xl);
+    }
+
+    > .accent {
+      color: colors.$yellow;
+    }
+  }
+}

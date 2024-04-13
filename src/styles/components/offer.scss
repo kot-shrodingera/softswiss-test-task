@@ -1,0 +1,94 @@
+@use '/src/styles/base/utils';
+@use '/src/styles/base/mixins';
+
+$-offer-gradient: linear-gradient(to left, transparent, rgba(15, 20, 32, 0.79));
+$-offer-background-color: #d9d9d9;
+
+.offer {
+  display: flex;
+  height: 350px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: utils.rem(22);
+  border-radius: utils.rem(10);
+  padding: utils.rem(28);
+
+  &:nth-child(1) {
+    background:
+      $-offer-gradient,
+      url(/images/space_2_768px.jpg) center / cover,
+      $-offer-background-color;
+    @include mixins.media(lg) {
+      background:
+        $-offer-gradient,
+        url(/images/space_2_2160px.jpg) center / cover,
+        $-offer-background-color;
+    }
+  }
+  &:nth-child(2) {
+    background:
+      $-offer-gradient,
+      url(/images/space_3_768px.jpg) center / cover $-offer-background-color;
+    @include mixins.media(lg) {
+      background:
+        $-offer-gradient,
+        url(/images/space_3_2160px.jpg) center / cover,
+        $-offer-background-color;
+    }
+  }
+  &:nth-child(3) {
+    background:
+      $-offer-gradient,
+      url(/images/space_4_768px.jpg) center / cover $-offer-background-color;
+    @include mixins.media(lg) {
+      background:
+        $-offer-gradient,
+        url(/images/space_4_2160px.jpg) center / cover,
+        $-offer-background-color;
+    }
+  }
+  &:nth-child(4) {
+    background:
+      $-offer-gradient,
+      url(/images/space_5_768px.jpg) center / cover $-offer-background-color;
+    @include mixins.media(lg) {
+      background:
+        $-offer-gradient,
+        url(/images/space_5_2160px.jpg) center / cover,
+        $-offer-background-color;
+    }
+  }
+
+  &--title {
+    max-width: 85%;
+    @include mixins.text(4xl);
+
+    @include mixins.media(lg) {
+      max-width: 60%;
+      @include mixins.text(4.5xl);
+    }
+  }
+
+  &--text {
+    @include mixins.text(base);
+
+    @include mixins.media(lg) {
+      @include mixins.text(2xl);
+    }
+  }
+
+  @include mixins.media(lg) {
+    &--wide {
+      grid-column: span 2 / span 2;
+
+      & .offer--title {
+        @include mixins.text(6.5xl);
+      }
+
+      & .offer--text {
+        @include mixins.text(2.5xl);
+      }
+    }
+  }
+}

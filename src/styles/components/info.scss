@@ -1,0 +1,45 @@
+@use '/src/styles/base/utils';
+@use '/src/styles/base/mixins';
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: utils.rem(20);
+
+  @include mixins.media(md) {
+    gap: utils.rem(17);
+  }
+
+  &--heading {
+    @include mixins.text(lg);
+
+    @include mixins.media(md) {
+      @include mixins.text(2xl);
+    }
+
+    @include mixins.media(lg) {
+      @include mixins.text(3xl);
+    }
+  }
+
+  &--text {
+    @include mixins.text(sm);
+    font-weight: 700;
+    color: rgba(white, 0.6);
+
+    @include mixins.media(md) {
+      @include mixins.text(base);
+    }
+
+    @include mixins.media(lg) {
+      @include mixins.text(xl);
+    }
+
+    &--collapsed {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+  }
+}

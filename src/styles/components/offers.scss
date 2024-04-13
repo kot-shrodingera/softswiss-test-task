@@ -1,0 +1,33 @@
+@use '/src/styles/base/mixins';
+@use '/src/styles/base/utils';
+
+@use 'offer';
+
+.offers {
+  &--heading {
+    @include mixins.text(lg);
+
+    @include mixins.media(md) {
+      @include mixins.text(2xl);
+    }
+
+    @include mixins.media(lg) {
+      @include mixins.text(3xl);
+    }
+  }
+
+  &--list {
+    margin-top: utils.rem(30);
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: utils.rem(30);
+
+    @include mixins.media(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include mixins.media(lg) {
+      gap: utils.rem(40);
+    }
+  }
+}

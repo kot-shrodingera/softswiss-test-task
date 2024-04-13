@@ -1,0 +1,9 @@
+@use 'colors';
+
+:root {
+  font-family: Lato, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-weight: 800;
+  color: white;
+  background-color: colors.$darkBlue;
+}

@@ -1,0 +1,68 @@
+@use 'variables';
+@use 'utils';
+
+@mixin media($media) {
+  @if $media == md {
+    @media (min-width: variables.$breakpoint-md) {
+      @content;
+    }
+  } @else if $media == lg {
+    @media (min-width: variables.$breakpoint-lg) {
+      @content;
+    }
+  }
+}
+
+@mixin text($size) {
+  @if $size == sm {
+    font-size: utils.rem(14);
+    line-height: utils.rem(17);
+  } @else if $size == base {
+    font-size: utils.rem(16);
+    line-height: utils.rem(19);
+  } @else if $size == lg {
+    font-size: utils.rem(18);
+    line-height: utils.rem(22);
+  } @else if $size == xl {
+    font-size: utils.rem(20);
+    line-height: utils.rem(24);
+  } @else if $size == 1.5xl {
+    font-size: utils.rem(22);
+    line-height: utils.rem(26);
+  } @else if $size == 2xl {
+    font-size: utils.rem(24);
+    line-height: utils.rem(29);
+  } @else if $size == 2.5xl {
+    font-size: utils.rem(26);
+    line-height: utils.rem(31);
+  } @else if $size == 3xl {
+    font-size: utils.rem(32);
+    line-height: utils.rem(38);
+  } @else if $size == 3.5xl {
+    font-size: utils.rem(36);
+    line-height: utils.rem(36);
+  } @else if $size == 4xl {
+    font-size: utils.rem(40);
+    line-height: utils.rem(40);
+  } @else if $size == 4.5xl {
+    font-size: utils.rem(46);
+    line-height: utils.rem(46);
+  } @else if $size == 5xl {
+    font-size: utils.rem(48);
+    line-height: utils.rem(48);
+  } @else if $size == 6xl {
+    font-size: utils.rem(72);
+    line-height: utils.rem(72);
+  } @else if $size == 6.5xl {
+    font-size: utils.rem(74);
+    line-height: utils.rem(74);
+  }
+}
+
+@mixin transition-multiple($props, $duration, $timing-function) {
+  $transitions: ();
+  @each $prop in $props {
+    $transitions: append($transitions, $prop $duration $timing-function, comma);
+  }
+  transition: $transitions;
+}

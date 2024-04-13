@@ -1,0 +1,141 @@
+@use '/src/styles/base/mixins';
+@use '/src/styles/base/utils';
+@use '/src/styles/base/colors';
+
+$-nav-link-gradient: linear-gradient(98.25deg, #ebff00 18.56%, #ff70d9 76.02%);
+
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  height: 48px;
+  background-color: black;
+
+  @include mixins.media(md) {
+    height: 80px;
+  }
+
+  &--container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &--logo {
+    display: flex;
+    align-items: center;
+    gap: utils.rem(4);
+    color: colors.$pink;
+
+    @include mixins.media(lg) {
+      gap: utils.rem(6);
+    }
+  }
+
+  &--logo-icon {
+    height: utils.rem(24);
+    width: utils.rem(24);
+
+    @include mixins.media(lg) {
+      height: utils.rem(36);
+      width: utils.rem(36);
+    }
+  }
+
+  &--go-logo-icon {
+    height: utils.rem(17);
+    width: utils.rem(43);
+
+    @include mixins.media(lg) {
+      height: utils.rem(25);
+      width: utils.rem(63);
+    }
+  }
+
+  &--nav {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: utils.rem(56);
+    background-color: black;
+    padding: utils.rem(16);
+    transition: transform 0.3s ease-out;
+    transform: translateX(100%);
+  
+    &.opened {
+      transform: translateX(0);
+    }
+  
+    &--close-icon {
+      position: absolute;
+      right: utils.rem(20);
+      top: utils.rem(5);
+      cursor: pointer;
+
+      @include mixins.media(md) {
+        display: none;
+      }
+    }
+
+    @include mixins.media(md) {
+      transform: none;
+      transition: none;
+      position: static;
+      flex-direction: row;
+      padding: 0;
+    }
+  }
+
+  &--burger {
+    cursor: pointer;
+
+    @include mixins.media(md) {
+      display: none;
+    }
+  }
+}
+
+.nav-link {
+  cursor: pointer;
+  @include mixins.text(lg);
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    background-image: $-nav-link-gradient;
+    background-clip: text;
+    color: transparent;
+
+    path {
+      fill: url(#gradient);
+    }
+  }
+}
+
+.menu-mobile {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: utils.rem(56);
+  background-color: black;
+  padding: utils.rem(16);
+  transition: transform 0.3s ease-out;
+
+  &.closed {
+    transform: translateX(100%);
+  }
+  &.opened {
+    transform: translateX(0);
+  }
+
+  &--close-icon {
+    position: absolute;
+    right: utils.rem(20);
+    top: utils.rem(5);
+    cursor: pointer;
+  }
+}

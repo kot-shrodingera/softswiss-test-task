@@ -1,0 +1,22 @@
+@use '/src/styles/base/utils';
+@use '/src/styles/base/mixins';
+@use '/src/styles/base/variables';
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: utils.rem(20);
+  padding-right: utils.rem(20);
+
+  @include mixins.media(md) {
+    max-width: variables.$breakpoint-md;
+    padding-left: utils.rem(30);
+    padding-right: utils.rem(30);
+  }
+
+  @include mixins.media(lg) {
+    max-width: variables.$breakpoint-lg;
+    padding-left: utils.rem(80);
+    padding-right: utils.rem(80);
+  }
+}

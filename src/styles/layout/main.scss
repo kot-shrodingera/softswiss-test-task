@@ -1,0 +1,24 @@
+@use '/src/styles/base/utils';
+@use '/src/styles/base/colors';
+@use '/src/styles/base/mixins';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: utils.rem(50);
+  background-color: colors.$darkBlue;
+  padding-top: utils.rem(50);
+  padding-bottom: utils.rem(50);
+
+  @include mixins.media(md) {
+    gap: utils.rem(55);
+    padding-top: utils.rem(55);
+    padding-bottom: utils.rem(55);
+  }
+
+  @include mixins.media(lg) {
+    gap: utils.rem(60);
+    padding-top: utils.rem(60);
+    padding-bottom: utils.rem(60);
+  }
+}

@@ -1,0 +1,47 @@
+@import '/src/styles/mixins.scss';
+
+.offer:nth-child(1) {
+  background:
+    linear-gradient(to left, transparent, rgba(15, 20, 32, 0.79)),
+    url(/images/space_2_768px.jpg) center / cover,
+    #d9d9d9;
+  @include respond-to(lg) {
+    background:
+      linear-gradient(to left, transparent, rgba(15, 20, 32, 0.79)),
+      url(/images/space_2_2160px.jpg) center / cover,
+      #d9d9d9;
+  }
+}
+.offer:nth-child(2) {
+  background:
+    linear-gradient(to left, transparent, rgba(15, 20, 32, 0.79)),
+    url(/images/space_3_768px.jpg) center / cover #d9d9d9;
+  @include respond-to(lg) {
+    background:
+      linear-gradient(to left, transparent, rgba(15, 20, 32, 0.79)),
+      url(/images/space_3_2160px.jpg) center / cover,
+      #d9d9d9;
+  }
+}
+.offer:nth-child(3) {
+  background:
+    linear-gradient(to left, transparent, rgba(15, 20, 32, 0.79)),
+    url(/images/space_4_768px.jpg) center / cover #d9d9d9;
+  @include respond-to(lg) {
+    background:
+      linear-gradient(to left, transparent, rgba(15, 20, 32, 0.79)),
+      url(/images/space_4_2160px.jpg) center / cover,
+      #d9d9d9;
+  }
+}
+.offer:nth-child(4) {
+  background:
+    linear-gradient(to left, transparent, rgba(15, 20, 32, 0.79)),
+    url(/images/space_5_768px.jpg) center / cover #d9d9d9;
+  @include respond-to(lg) {
+    background:
+      linear-gradient(to left, transparent, rgba(15, 20, 32, 0.79)),
+      url(/images/space_5_2160px.jpg) center / cover,
+      #d9d9d9;
+  }
+}

@@ -1,0 +1,45 @@
+@use '/src/styles/base/utils';
+@use '/src/styles/base/mixins';
+@use '/src/styles/base/colors';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  padding: utils.rem(5) utils.rem(38);
+  @include mixins.text(base);
+  font-weight: 700;
+  @include mixins.transition-multiple(
+    (color, background-color, border-color),
+    0.3s,
+    ease-out
+  );
+
+  @include mixins.media(md) {
+    padding-top: utils.rem(12);
+    padding-bottom: utils.rem(12);
+    @include mixins.text(1.5xl);
+  }
+
+  &--default {
+    background-color: colors.$yellow;
+    color: black;
+
+    &:hover {
+      background-color: rgba(colors.$yellow, 0.6);
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: colors.$yellow;
+    border-color: colors.$yellow;
+
+    &:hover {
+      color: rgba(colors.$yellow, 0.6);
+      border-color: rgba(colors.$yellow, 0.6);
+    }
+  }
+}

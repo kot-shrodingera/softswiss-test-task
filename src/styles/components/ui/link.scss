@@ -1,0 +1,22 @@
+@use '/src/styles/base/mixins';
+@use '/src/styles/base/colors';
+
+.link {
+  cursor: pointer;
+  @include mixins.text(sm);
+  color: colors.$yellow;
+  text-decoration: none;
+  transition: color 0.3s ease-out;
+
+  &:hover {
+    color: rgba(colors.$yellow, 0.6);
+  }
+
+  @include mixins.media(md) {
+    @include mixins.text(base);
+  }
+
+  @include mixins.media(lg) {
+    @include mixins.text(xl);
+  }
+}

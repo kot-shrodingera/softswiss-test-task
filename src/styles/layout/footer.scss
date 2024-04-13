@@ -1,0 +1,14 @@
+@use '/src/styles/base/utils';
+@use '/src/styles/base/mixins';
+@use '/src/styles/base/colors';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  padding-bottom: utils.rem(20);
+  @include mixins.text(lg);
+  line-height: utils.rem(28);
+  color: colors.$yellow;
+}
